@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
 import SubirSubasta from './SubirSubasta';
+import NavBar from './NavBar';
 import ListaSubastas from './ListaSubastas';
 import {Meteor} from 'meteor/meteor';
 import {Subastas} from '../api/subastas.js';
@@ -10,7 +11,7 @@ const App = (props) => {
   
   return(
   <div className="container">
-   
+    <NavBar></NavBar>
     <SubirSubasta></SubirSubasta>
     <ListaSubastas subastas={props.subastas}>
 

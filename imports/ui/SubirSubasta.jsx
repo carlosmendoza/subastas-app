@@ -30,7 +30,6 @@ const SubirSubasta = () => {
 
   return(
   <div >
-    <h1>Subir Subasta!</h1>
     <br></br>
     <form className="subasta3">
 
