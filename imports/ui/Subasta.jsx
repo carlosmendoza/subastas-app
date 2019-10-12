@@ -32,6 +32,10 @@ const Subasta = (props) => {
           <br></br>
           <form className="subasta">
             <div className="form-group">
+                <label htmlFor="dueño">Dueño:</label>
+                <input value={props.dueño} type="text" className="form-control" id="dueño" readOnly />
+            </div> 
+            <div className="form-group">
                 <label htmlFor="nombreProducto">Nombre del producto:</label>
                 <input value={props.nombre} type="text" className="form-control" id="nombreProducto" readOnly />
             </div>      
@@ -71,6 +75,10 @@ const Subasta = (props) => {
                 <div >
                   <br></br>
                   <form className="subasta2">
+                    <div className="form-group">
+                        <label htmlFor="dueño">Dueño:</label>
+                        <input value={props.dueño} type="text" className="form-control" id="dueño" readOnly />
+                    </div> 
                     <div className="form-group">
                         <label htmlFor="nombreProducto">Nombre del producto:</label>
                         <input value={props.nombre} type="text" className="form-control" id="nombreProducto" readOnly />
