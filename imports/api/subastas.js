@@ -21,13 +21,14 @@ Meteor.methods({
         });
     },
 
-    "subastas.pujar"(nombre,monto)
+    "subastas.pujar"(nombre,usuario,monto)
     {
         Subastas.update({
             nombre
         }, {
             $set:{
-                valor_actual:monto
+                valor_actual:monto,
+                ganador:usuario
             }
             
 

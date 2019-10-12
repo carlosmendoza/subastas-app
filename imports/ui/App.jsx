@@ -9,14 +9,15 @@ import {Subastas} from '../api/subastas.js';
 
 const App = (props) => {
   
+
   return(
   <div className="container">
     <NavBar></NavBar>
-    {Meteor.user()? (<div>Bienvenido { Meteor.user().username}</div>)
+    {Meteor.user()? (<div>Bienvenido { props.usuario.username}</div>)
     :(<div>Por favor ingresa</div>)}
     
     <SubirSubasta></SubirSubasta>
-    <ListaSubastas subastas={props.subastas}>
+    <ListaSubastas subastas={props.subastas} usuario={props.usuario}>
 
     </ListaSubastas>
     

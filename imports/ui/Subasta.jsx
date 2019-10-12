@@ -9,11 +9,14 @@ const Subasta = (props) => {
         setValorActual(evt.target.value);
     }
     const buttonPressed = ()=>{
-        Meteor.call("subastas.pujar", props.nombre,valor_puja, (err,res)=>{
+        if(props.usuario!="Sin usaurio")
+        {
+        Meteor.call("subastas.pujar", props.nombre,props.usuario,valor_puja, (err,res)=>{
           if (err) {setErr(err); return;}
           inRef.current.value="";
           
         })
+        }
       }
 
 
