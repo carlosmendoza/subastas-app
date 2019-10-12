@@ -12,6 +12,9 @@ const App = (props) => {
   return(
   <div className="container">
     <NavBar></NavBar>
+    {Meteor.user()? (<div>Bienvenido { Meteor.user().username}</div>)
+    :(<div>Por favor ingresa</div>)}
+    
     <SubirSubasta></SubirSubasta>
     <ListaSubastas subastas={props.subastas}>
 
@@ -23,6 +26,7 @@ const App = (props) => {
 const wT1=()=>{
   Meteor.subscribe("subastas");
   return{
+    usuario: Meteor.user(),
     subastas: Subastas.find({}).fetch()
   }
 }
