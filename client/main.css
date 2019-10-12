@@ -1,0 +1,29 @@
+body {
+  padding: 10px;
+  font-family: sans-serif;
+}
+.subasta{
+  background: #df2020;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+}
+.subasta2{
+  background: #0099ff;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+}
+.subasta3{
+  background: #001427;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+}
+
+.grilla{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
