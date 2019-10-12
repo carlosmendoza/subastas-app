@@ -1,29 +1,38 @@
 body {
   padding: 10px;
-  font-family: sans-serif;
+  font-family: "Domine", serif;
 }
-.subasta{
-  background: #df2020;
+
+.subasta {
+  background: #04b2d9;
   color: white;
   padding: 20px;
   margin: 10px;
 }
-.subasta2{
-  background: #0099ff;
+.subasta2 {
+  background: #04b2d9;
   color: white;
   padding: 20px;
   margin: 10px;
 }
-.subasta3{
-  background: #001427;
+.subasta3 {
+  background: #04c4d9;
   color: white;
   padding: 20px;
   margin: 10px;
 }
 
-.grilla{
+.grilla {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
