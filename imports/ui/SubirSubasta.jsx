@@ -3,7 +3,7 @@ import {Meteor} from 'meteor/meteor';
 
 
 
-const SubirSubasta = () => {
+const SubirSubasta = (props) => {
   const [nombre, setNombre] =useState("");
   const [descripcion, setDescripcion] =useState("");
   const [monto, setMonto] =useState("");
@@ -18,11 +18,15 @@ const SubirSubasta = () => {
   }
   const inRef = useRef();
   const buttonPressed = ()=>{
-    Meteor.call("subastas.insert", nombre,descripcion,monto, (err,res)=>{
+    if(props.usuario)
+    {
+    Meteor.call("subastas.insert", nombre,descripcion,monto,props.usuario.username, (err,res)=>{
       if (err) {setErr(err); return;}
       inRef.current.value="";
       console.log("Added",nombre);
     })
+    }
+    
   }
 
 
@@ -45,7 +49,7 @@ const SubirSubasta = () => {
   </div>
   <div className="form-group">
   <label htmlFor="aumento">Monto minimo de aumento:</label>
-    <input value={monto} onChange={handleChangeMonto} type="text" className="form-control" id="aumento" />
+    <input value={monto} onChange={handleChangeMonto} type="number" className="form-control" id="aumento" />
   </div>
   
   <button className="btn btn-primary" onClick={buttonPressed}>Agregar</button>

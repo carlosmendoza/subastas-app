@@ -9,13 +9,18 @@ const Subasta = (props) => {
         setValorActual(evt.target.value);
     }
     const buttonPressed = ()=>{
-        if(props.usuario!="Sin usaurio")
+        if(props.usuario!="Sin usuario")
         {
-        Meteor.call("subastas.pujar", props.nombre,props.usuario,valor_puja, (err,res)=>{
-          if (err) {setErr(err); return;}
-          inRef.current.value="";
-          
-        })
+            if(valor_puja>props.valor_actual  && (valor_puja-props.valor_actual)>=props.monto)
+            {
+                Meteor.call("subastas.pujar", props.nombre,props.usuario,valor_puja, (err,res)=>{
+                if (err) {setErr(err); return;}
+                inRef.current.value="";
+                })
+            }
+            else{
+                console.log("NO CUMPLE LAS CONDICIONES DE LA SUBASTA",valor_puja-props.valor_actual," monto ",props.monto.type)
+            }
         }
       }
 
@@ -27,24 +32,28 @@ const Subasta = (props) => {
           <br></br>
           <form className="subasta">
             <div className="form-group">
-                <label for="nombreProducto">Nombre del producto:</label>
+                <label htmlFor="nombreProducto">Nombre del producto:</label>
                 <input value={props.nombre} type="text" className="form-control" id="nombreProducto" readOnly />
             </div>      
             <div className="form-group ">
-                <label for="descripcion">Descripción:</label>
+                <label htmlFor="descripcion">Descripción:</label>
                 <input value={props.descripcion} type="text" className="form-control" id="descripcion" readOnly />
             </div>
             <div className="form-group">
-                <label for="aumento">Monto minimo de aumento:</label>
+                <label htmlFor="aumento">Monto minimo de aumento:</label>
                 <input value={props.monto} type="text" className="form-control" id="aumento" readOnly/>
             </div>
             <div className="form-group">
-                <label for="actual">Valor actual:</label>
+                <label htmlFor="actual">Valor actual:</label>
                 <input value={props.valor_actual} type="text" className="form-control" id="actual" readOnly/>
+            </div>
+            <div className="form-group">
+                <label htmlFor="gandoractual">Ganador actual:</label>
+                <input value={props.ganador} type="text" className="form-control" id="ganadoractual" readOnly/>
             </div>
             <div className="form-row">
                 <div className="col-8">
-                <input value={valor_puja} type="text" className="form-control"  onChange={handleChangeValor}/>
+                <input value={valor_puja} type="number" className="form-control"  onChange={handleChangeValor}/>
                 </div>
                 <div className="col">
                 <button className="btn btn-primary" onClick={buttonPressed}>Pujar</button>
@@ -63,24 +72,28 @@ const Subasta = (props) => {
                   <br></br>
                   <form className="subasta2">
                     <div className="form-group">
-                        <label for="nombreProducto">Nombre del producto:</label>
+                        <label htmlFor="nombreProducto">Nombre del producto:</label>
                         <input value={props.nombre} type="text" className="form-control" id="nombreProducto" readOnly />
                     </div>      
                     <div className="form-group ">
-                        <label for="descripcion">Descripción:</label>
+                        <label htmlFor="descripcion">Descripción:</label>
                         <input value={props.descripcion} type="text" className="form-control" id="descripcion" readOnly />
                     </div>
                     <div className="form-group">
-                        <label for="aumento">Monto minimo de aumento:</label>
+                        <label htmlFor="aumento">Monto minimo de aumento:</label>
                         <input value={props.monto} type="text" className="form-control" id="aumento" readOnly/>
                     </div>
                     <div className="form-group">
-                        <label for="actual">Valor actual:</label>
+                        <label htmlFor="actual">Valor actual:</label>
                         <input value={props.valor_actual} type="text" className="form-control" id="actual" readOnly/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="gandoractual">Ganador actual:</label>
+                        <input value={props.ganador} type="text" className="form-control" id="ganadoractual" readOnly/>
                     </div>
                     <div className="form-row">
                     <div className="col-8">
-                        <input value={valor_puja} type="text" className="form-control"  onChange={handleChangeValor}/>
+                        <input value={valor_puja} type="number" className="form-control"  onChange={handleChangeValor}/>
                     </div>
                     <div className="col">
                         <button className="btn btn-primary" onClick={buttonPressed}>Pujar</button>

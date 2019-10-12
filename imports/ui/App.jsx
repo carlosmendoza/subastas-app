@@ -16,7 +16,7 @@ const App = (props) => {
     {Meteor.user()? (<div>Bienvenido { props.usuario.username}</div>)
     :(<div>Por favor ingresa</div>)}
     
-    <SubirSubasta></SubirSubasta>
+    <SubirSubasta usuario={props.usuario} ></SubirSubasta>
     <ListaSubastas subastas={props.subastas} usuario={props.usuario}>
 
     </ListaSubastas>

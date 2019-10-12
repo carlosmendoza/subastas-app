@@ -8,7 +8,7 @@ if(Meteor.isServer){
     })
 }
 Meteor.methods({
-    "subastas.insert"(nombre,descripcion,monto)
+    "subastas.insert"(nombre,descripcion,monto,usuario)
     {
         Subastas.upsert({
             nombre
@@ -16,7 +16,9 @@ Meteor.methods({
             nombre,
             descripcion,
             monto,
-            valor_actual:0
+            valor_actual:0,
+            dueño:usuario,
+            ganador:"Ninguno"
 
         });
     },
