@@ -9,21 +9,33 @@ import ReactDOM from 'react-dom'
 
 
 const App = (props) => {
-
-  const inRef = useRef();
-  const buttonComprasPressed = ()=>{
-    document.getElementById('subirsubasta')? console.log("lo encontró"): console.log("No lo encontró");
+  const listasubastas = useRef();
+  const listacompras = useRef();
+  const listaventas = useRef();
+  
+ 
+  function buttonComprasPressed(){
+    
+    listasubastas.current.style.display!='none'?listasubastas.current.style.display = 'none':true;
+    listaventas.current.style.display!='none'?listaventas.current.style.display = 'none':true;
+    listacompras.current.style.display=='none'?listacompras.current.style.display = 'inline':true;
     
   }
-  useEffect(buttonComprasPressed)
+ 
   
 
-  const buttonVentasPressed = ()=>{
+  function buttonVentasPressed(){
     
+    listasubastas.current.style.display!='none'?listasubastas.current.style.display = 'none':true;
+    listacompras.current.style.display!='none'?listacompras.current.style.display = 'none':true;
+    listaventas.current.style.display=='none'?listaventas.current.style.display = 'inline':true;
     
   }
   const buttonTodosPressed = ()=>{
     
+    listasubastas.current.style.display=='none'?listasubastas.current.style.display = 'inline':true;
+    listaventas.current.style.display!='none'?listaventas.current.style.display = 'none':true;
+    listacompras.current.style.display!='none'?listacompras.current.style.display = 'none':true;
     
   }
   
@@ -31,30 +43,35 @@ const App = (props) => {
   return(
   <div className="container">
     <NavBar></NavBar>
-    {Meteor.user()? (<h1>Bienvenido { props.usuario.username}</h1>)
+    <br></br>
+    {Meteor.user()? (<h1 >Bienvenido { props.usuario.username}</h1>)
     :(<div>Por favor ingresa</div>)}
-    <button onClick={buttonComprasPressed}>Compras</button>
-    <button onClick={buttonVentasPressed}>Ventas</button>
-    <button onClick={buttonTodosPressed}>Todos</button>
+    <button className="btn btn-primary" onClick={buttonComprasPressed}>Mis Compras</button><span>{" "}</span>
+    <button className="btn btn-primary" onClick={buttonVentasPressed}>Mis Ventas</button><span>{" "}</span>
+    <button className="btn btn-primary" onClick={buttonTodosPressed}>Todas las Subastas</button>
     <SubirSubasta id="subirsubasta" usuario={props.usuario} ></SubirSubasta>
     
     <br></br>
+    
+    <div ref={listasubastas}>
     <h1>Lista de subastas</h1>
-
-    <ListaSubastas id="listasubastas" subastas={props.subastas} usuario={props.usuario}>
-    </ListaSubastas>
+      <ListaSubastas id="listasubastas"  subastas={props.subastas} usuario={props.usuario}>
+      </ListaSubastas>
     <br></br>
+    </div>
     
+    <div ref={listacompras}>
     <h1>Lista de compras</h1>
-   
-    <ListaSubastas id="listacompras" subastas={props.compras} usuario={props.usuario}>
-    </ListaSubastas>
+      <ListaSubastas className="listacompras" id="listacompras" subastas={props.compras} usuario={props.usuario}>
+      </ListaSubastas>
     <br></br>
+    </div>
     
-    <h1>Lista de ventas</h1>
-   
-    <ListaSubastas id="listaventas" subastas={props.ventas} usuario={props.usuario}>
-    </ListaSubastas>
+    <div ref={listaventas}>
+      <h1>Lista de ventas</h1>
+      <ListaSubastas className="listaventas" id="listaventas" subastas={props.ventas} usuario={props.usuario}>
+      </ListaSubastas>
+    </div>
     
     
   </div>)
