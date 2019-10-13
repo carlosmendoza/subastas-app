@@ -8,6 +8,7 @@ const Subasta = (props) => {
     const handleChangeValor =(evt)=>{
         setValorActual(evt.target.value);
     }
+    const inRef = useRef();
     const buttonPressed = ()=>{
         if(props.usuario!="Sin usuario")
         {
