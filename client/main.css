@@ -37,6 +37,9 @@ h6 {
   font-family: "Montserrat", sans-serif;
 }
 
-.listacompras , .listaventas{
+.listacompras{
+  display: none;
+}
+.listaventas{
   display: none;
 }

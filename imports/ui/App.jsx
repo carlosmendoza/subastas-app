@@ -60,14 +60,14 @@ const App = (props) => {
     <br></br>
     </div>
     
-    <div ref={listacompras}>
+    <div ref={listacompras} className="listacompras">
     <h1>Lista de compras</h1>
       <ListaSubastas className="listacompras" id="listacompras" subastas={props.compras} usuario={props.usuario}>
       </ListaSubastas>
     <br></br>
     </div>
     
-    <div ref={listaventas}>
+    <div ref={listaventas} className="listaventas">
       <h1>Lista de ventas</h1>
       <ListaSubastas className="listaventas" id="listaventas" subastas={props.ventas} usuario={props.usuario}>
       </ListaSubastas>
