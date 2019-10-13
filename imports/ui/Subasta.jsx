@@ -57,7 +57,7 @@ const Subasta = (props) => {
             </div>
             <div className="form-group">
                 <label htmlFor="valoroferta">Valor oferta:</label>
-                <input value={valor_puja} type="number" className="form-control" id="valoroferta" onChange={handleChangeValor}/>
+                <input value={valor_puja} ref={inRef} type="number" className="form-control" id="valoroferta" onChange={handleChangeValor}/>
                 
                 
             </div>

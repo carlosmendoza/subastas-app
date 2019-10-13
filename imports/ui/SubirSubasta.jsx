@@ -16,13 +16,18 @@ const SubirSubasta = (props) => {
   const handleChangeMonto =(evt)=>{
     setMonto(evt.target.value);
   }
-  const inRef = useRef();
+  const inRefNombre = useRef();
+  const inRefDescripcion = useRef();
+  const inRefMonto = useRef();
   const buttonPressed = ()=>{
     if(props.usuario)
     {
     Meteor.call("subastas.insert", nombre,descripcion,monto,props.usuario.username, (err,res)=>{
       if (err) {setErr(err); return;}
-      inRef.current.value="";
+      inRefNombre.current.value="";
+      inRefDescripcion.current.value="";
+      inRefMonto.current.value="";
+      
       console.log("Added",nombre);
     })
     }
@@ -38,17 +43,17 @@ const SubirSubasta = (props) => {
 
     <div className="form-group">
       <label htmlFor="nombreProducto">Nombre del producto:</label>
-      <input value={nombre}  onChange={handleChangeNombre} type="text" className="form-control" id="nombreProducto" />
+      <input ref={inRefNombre}value={nombre}  onChange={handleChangeNombre} type="text" className="form-control" id="nombreProducto" />
     </div>
     
  
   <div className="form-group ">
     <label htmlFor="descripcion">Descripción:</label>
-    <input value={descripcion} onChange={handleChangeDescripcion} type="text" className="form-control" id="descripcion" />
+    <input ref={inRefDescripcion}value={descripcion} onChange={handleChangeDescripcion} type="text" className="form-control" id="descripcion" />
   </div>
   <div className="form-group">
   <label htmlFor="aumento">Monto minimo de aumento:</label>
-    <input value={monto} onChange={handleChangeMonto} type="number" className="form-control" id="aumento" />
+    <input ref={inRefMonto}value={monto} onChange={handleChangeMonto} type="number" className="form-control" id="aumento" />
   </div>
   
   
