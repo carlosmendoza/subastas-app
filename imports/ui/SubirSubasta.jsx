@@ -33,9 +33,8 @@ const SubirSubasta = (props) => {
 
 
   return(
-  <div >
-    <br></br>
-    <form className="subasta3">
+  <div className="subasta3">
+    <form >
 
     <div className="form-group">
       <label htmlFor="nombreProducto">Nombre del producto:</label>
@@ -52,8 +51,9 @@ const SubirSubasta = (props) => {
     <input value={monto} onChange={handleChangeMonto} type="number" className="form-control" id="aumento" />
   </div>
   
-  <button className="btn btn-primary" onClick={buttonPressed}>Agregar</button>
+  
 </form>
+<button className="btn btn-primary" onClick={buttonPressed} type="reset">Agregar</button>
     
   </div>
   )
