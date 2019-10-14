@@ -2,30 +2,32 @@ body {
   padding: 10px;
   font-family: "Domine", serif;
 }
-
-.subasta {
-  background: #04b2d9;
-  color: white;
-  padding: 20px;
-  margin: 10px;
-}
-.subasta2 {
-  background: #04b2d9;
-  color: white;
-  padding: 20px;
-  margin: 10px;
-}
-.subasta3 {
-  background: #04c4d9;
-  color: white;
-  padding: 20px;
-  margin: 10px;
-}
-
-.grilla {
+auctionGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
+}
+
+.auction {
+  background-color: #04b2d9;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+}
+
+.completed {
+  background-color: #013a40;
+  color: gray;
+  padding: 20px;
+  margin: 10px;
+  text-decoration: line-through;
+}
+
+.addAuctionElement {
+  background-color: #04b2d9;
+  color: white;
+  padding: 20px;
+  margin: 10px;
 }
 
 h1,
@@ -35,11 +37,4 @@ h4,
 h5,
 h6 {
   font-family: "Montserrat", sans-serif;
-}
-
-.listacompras{
-  display: none;
-}
-.listaventas{
-  display: none;
 }
