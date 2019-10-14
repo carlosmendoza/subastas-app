@@ -1,8 +1,9 @@
 body {
   padding: 10px;
-  font-family: "Domine", serif;
+  font-family: sans-serif;
 }
-auctionGrid {
+
+.auctionGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -16,7 +17,7 @@ auctionGrid {
 }
 
 .completed {
-  background-color: #013a40;
+  background-color: #013A40;
   color: gray;
   padding: 20px;
   margin: 10px;
@@ -28,13 +29,4 @@ auctionGrid {
   color: white;
   padding: 20px;
   margin: 10px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Montserrat", sans-serif;
 }

@@ -1,17 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import { Template } from "meteor/templating";
 import { Blaze } from "meteor/blaze";
 
-const AccountsUIWrapper = () => {
-  const refTarget = useRef();
-  useEffect(() => {
-    const view = Blaze.render(Template.loginButtons, refTarget.current);
+export default class AccountsUIWrapper extends Component {
+  componentDidMount() {
+    // Use Meteor Blaze to render login buttons
+    this.view = Blaze.render(
+      Template.loginButtons,
 
-    return () => {
-      Blaze.remove(view);
-    };
-  });
-  return <div ref={refTarget}></div>;
-};
+      ReactDOM.findDOMNode(this.refs.container)
+    );
+  }
 
-export default AccountsUIWrapper;
+  componentWillUnmount() {
+    // Clean up Blaze view
+    Blaze.remove(this.view);
+  }
+
+  render() {
+    // Just render a placeholder container that will be filled in
+    return <span ref="container" />;
+  }
+}

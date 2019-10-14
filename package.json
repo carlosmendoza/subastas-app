@@ -1,5 +1,5 @@
 {
-  "name": "subastas-app",
+  "name": "bidding-now",
   "private": true,
   "scripts": {
     "start": "meteor run",
@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
+    "classnames": "^2.2.6",
     "meteor-node-stubs": "^0.4.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -16,7 +17,7 @@
   },
   "meteor": {
     "mainModule": {
-      "client": "client/main.jsx",
+      "client": "client/main.js",
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"

@@ -43,17 +43,11 @@ class AuctionElement extends Component {
 
   handleEditClick = e => {
     e.preventDefault();
-
-    const productName = ReactDOM.findDOMNode(
-      this.refs.productName
-    ).value.trim();
-    const productDescription = ReactDOM.findDOMNode(
-      this.refs.productDescription
-    ).value.trim();
-    const minIncrease = ReactDOM.findDOMNode(
-      this.refs.minIncrease
-    ).value.trim();
-
+    
+    const productName = ReactDOM.findDOMNode(this.refs.productName).value.trim()
+    const productDescription = ReactDOM.findDOMNode(this.refs.productDescription).value.trim()
+    const minIncrease = ReactDOM.findDOMNode(this.refs.minIncrease).value.trim()
+    
     if (Meteor.user().username === this.props.username) {
       Meteor.call(
         "auctions.edit",

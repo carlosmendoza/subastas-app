@@ -40,7 +40,7 @@ Meteor.methods({
       throw new Meteor.Error("non-authorized");
     }
 
-    Auctions.update({ _id: auctionId }, { $set: { completed: true } });
+    Auctions.update({_id:auctionId}, { $set: { completed: true } });
   },
   "auctions.bidup"(auctionId, winner, actualValue) {
     check(auctionId, String);
@@ -49,7 +49,7 @@ Meteor.methods({
 
     Auctions.update(
       {
-        _id: auctionId
+        _id:auctionId
       },
       {
         $set: {
@@ -73,7 +73,7 @@ Meteor.methods({
 
     Auctions.update(
       {
-        _id: auctionId
+        _id:auctionId
       },
       {
         $set: {
