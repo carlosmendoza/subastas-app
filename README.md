@@ -27,9 +27,16 @@ Once you have it installed, run:
 
 ```
 mongod
-```
+```  
 
-So the local DB start and let you connect to it
+
+So the local DB start and let you connect to it  
+#### Meteor 
+OSX / LINUX: Run the following command in your terminal to install the latest official Meteor release:  
+curl https://install.meteor.com/ | sh  
+
+Windows: First install Chocolatey, then run this command using an Administrator command prompt:  
+choco install meteor
 
 ### Important information
 
