@@ -22,6 +22,15 @@ class App extends Component {
       <Router>
         <div className="container">
           <Navbar />
+          {this.props.currentUser ? (
+          <div>
+            <h1>Hello {this.props.currentUser.username},</h1>
+          </div>
+        ) : (
+          <div>
+            <h1>To continue, please sign in or create an account</h1>
+          </div>
+        )}
           <Route
             exact
             path="/"
@@ -34,51 +43,39 @@ class App extends Component {
               </React.Fragment>
             )}
           />
-          {this.props.currentUser ? (
-            <Route
-              exact
-              path="/addElement"
-              render={props => (
-                <React.Fragment>
-                  <AddElement />
-                </React.Fragment>
-              )}
-            />
-          ) : (
-            ""
-          )}
-          {this.props.currentUser ? (
-            <Route
-              exact
-              path="/purchasedElement"
-              render={props => (
-                <React.Fragment>
-                  <AuctionList
-                    auctions={this.props.purchasedAuctions}
-                    currentUser={this.props.currentUser}
-                  />
-                </React.Fragment>
-              )}
-            />
-          ) : (
-            ""
-          )}
-          {this.props.currentUser ? (
-            <Route
-              exact
-              path="/sellElement"
-              render={props => (
-                <React.Fragment>
-                  <AuctionList
-                    auctions={this.props.sellAuctions}
-                    currentUser={this.props.currentUser}
-                  />
-                </React.Fragment>
-              )}
-            />
-          ) : (
-            ""
-          )}
+          <Route
+            exact
+            path="/addElement"
+            render={props => (
+              <React.Fragment>
+                <AddElement />
+              </React.Fragment>
+            )}
+          />
+          <Route
+            exact
+            path="/purchasedElement"
+            render={props => (
+              <React.Fragment>
+                <AuctionList
+                  auctions={this.props.purchasedAuctions}
+                  currentUser={this.props.currentUser}
+                />
+              </React.Fragment>
+            )}
+          />
+          <Route
+            exact
+            path="/sellElement"
+            render={props => (
+              <React.Fragment>
+                <AuctionList
+                  auctions={this.props.sellAuctions}
+                  currentUser={this.props.currentUser}
+                />
+              </React.Fragment>
+            )}
+          />
         </div>
       </Router>
     );
@@ -88,7 +85,7 @@ class App extends Component {
 export default withTracker(() => {
   Meteor.subscribe("auctions");
 
-  if(Meteor.user()) {
+  if (Meteor.user()) {
     return {
       auctions: Auctions.find({}, { sort: { createAt: -1 } }).fetch(),
       purchasedAuctions: Auctions.find(
@@ -105,7 +102,6 @@ export default withTracker(() => {
     return {
       auctions: Auctions.find({}, { sort: { createAt: -1 } }).fetch(),
       currentUser: Meteor.user()
-    }
+    };
   }
-
 })(App);

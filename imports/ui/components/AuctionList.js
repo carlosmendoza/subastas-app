@@ -30,6 +30,7 @@ class AuctionList extends Component {
             winner={auction.winner}
             completed={auction.completed}
             currentUser
+            finishDate={auction.finishDate}
           />
         ))}
       </div>
@@ -45,7 +46,7 @@ class AuctionList extends Component {
   render() {
     return (
       <div>
-        <h1>Register Auctions</h1>
+        <h2>Registered Auctions</h2>
         <div className="custom-control custom-switch">
           <div className="row justify-content-md-center">
             <input

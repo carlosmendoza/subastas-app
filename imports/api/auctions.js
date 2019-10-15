@@ -11,10 +11,11 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  "auctions.insert"(productName, productDescription, minIncrease) {
+  "auctions.insert"(productName, productDescription, minIncrease, finishDate) {
     check(productName, String);
     check(productDescription, String);
     check(minIncrease, String);
+    check(finishDate, String);
 
     // Make sure the user is logged in before inserting an auction
     if (!this.userId) {
@@ -28,7 +29,8 @@ Meteor.methods({
       winner: "No body",
       owner: this.userId,
       username: Meteor.users.findOne(this.userId).username,
-      createAt: new Date()
+      createAt: new Date(),
+      finishDate
     });
   },
   "auctions.setCompleted"(auctionId) {
@@ -83,5 +85,12 @@ Meteor.methods({
         }
       }
     );
+  },
+  "auctions.findSimilar"(similarDescription) {
+    check(similarDescription, String);
+
+    return Auctions.find({
+      productDescription: {$regex: similarDescription}
+    })
   }
 });

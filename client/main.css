@@ -1,6 +1,11 @@
 body {
   padding: 10px;
-  font-family: sans-serif;
+  font-family: "Domine", sans-serif;
+  color: #013A40;
+}
+
+#my-navbar {
+  background-color: rgba(4, 178, 217, 0.719);
 }
 
 .auctionGrid {
@@ -10,10 +15,11 @@ body {
 }
 
 .auction {
-  background-color: #04b2d9;
+  background-color: #04B2D9;
   color: white;
   padding: 20px;
   margin: 10px;
+  font-size: 14px;
 }
 
 .completed {
@@ -22,6 +28,7 @@ body {
   padding: 20px;
   margin: 10px;
   text-decoration: line-through;
+  font-size: 14px;
 }
 
 .addAuctionElement {
@@ -29,4 +36,21 @@ body {
   color: white;
   padding: 20px;
   margin: 10px;
+  font-size: 14px;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.btn {
+  margin: 10px;
+}
+
+#btn-bid {
+  background-color: #013A40;
+  color: white;
+}
+
+.btn-edit {
+  color: white;
 }

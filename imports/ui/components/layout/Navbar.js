@@ -5,7 +5,7 @@ import AccountUIWrapper from "../../AccountsUIWrapper";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="sticky-top navbar navbar-expand-lg navbar-light" id="my-navbar">
       <div className="container-fluid">
         <ul className="nav navbar-nav active">
           <li>
@@ -15,17 +15,17 @@ function Navbar() {
           </li>
           <li>
             <Link to={"/addElement"} className="nav-link">
-              Add Element
+              Add Item
             </Link>
           </li>
           <li>
             <Link to={"/purchasedElement"} className="nav-link">
-              Purchased Elements
+              Purchased Items
             </Link>
           </li>
           <li>
             <Link to={"/sellElement"} className="nav-link">
-              Sell Elements
+              Items Sold
             </Link>
           </li>
         </ul>
