@@ -23,14 +23,14 @@ class App extends Component {
         <div className="container">
           <Navbar />
           {this.props.currentUser ? (
-          <div>
-            <h1>Hello {this.props.currentUser.username},</h1>
-          </div>
-        ) : (
-          <div>
-            <h1>To continue, please sign in or create an account</h1>
-          </div>
-        )}
+            <div>
+              <h1>Hello {this.props.currentUser.username},</h1>
+            </div>
+          ) : (
+            <div>
+              <h1>To continue, please sign in or create an account</h1>
+            </div>
+          )}
           <Route
             exact
             path="/"

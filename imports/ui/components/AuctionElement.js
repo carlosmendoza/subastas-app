@@ -9,7 +9,8 @@ class AuctionElement extends Component {
     super(props);
 
     this.state = {
-      bidUpValue: props.actualValue
+      bidUpValue: props.actualValue,
+      winnersPhone: props.winnersPhone
     };
 
     const finishDate = new Date(this.props.finishDate);
@@ -28,6 +29,10 @@ class AuctionElement extends Component {
     this.setState({ bidUpValue: e.target.value });
   };
 
+  onChange2 = e => {
+    this.setState({ winnersPhone: e.target.value });
+  };
+
   handleClick = e => {
     e.preventDefault();
     if (Meteor.user() !== null) {
@@ -39,7 +44,8 @@ class AuctionElement extends Component {
           "auctions.bidup",
           this.props.auctionId,
           Meteor.user().username,
-          this.state.bidUpValue
+          this.state.bidUpValue,
+          this.state.winnersPhone
         );
       } else {
         alert("The bid up value is not valid, try with another amomunt");
@@ -217,6 +223,20 @@ class AuctionElement extends Component {
             </div>
           </div>
           <div className="form-group row">
+            <label htmlFor="winner" className="col-sm-6 col-form-label">
+              Winners contact number:
+            </label>
+            <div className="col-sm-6">
+              <input
+                type="text"
+                value={this.props.winnersPhone}
+                className="form-control"
+                id="winnersPhone"
+                readOnly
+              />
+            </div>
+          </div>
+          <div className="form-group row">
             <label htmlFor="bidUpValue" className="col-sm-6 col-form-label">
               Bid up value:
             </label>
@@ -342,6 +362,21 @@ class AuctionElement extends Component {
             </div>
           </div>
           <div className="form-group row">
+            <label htmlFor="winnersPhone" className="col-sm-6 col-form-label">
+              Contact number:
+            </label>
+            <div className="col-sm-6">
+              <input
+                type="text"
+                className="form-control"
+                id="winnersPhone"
+                ref="winnersPhone"
+                onChange={this.onChange2}
+                required
+              />
+            </div>
+          </div>
+          <div className="form-group row">
             <label htmlFor="bidUpValue" className="col-sm-6 col-form-label">
               Bid up value:
             </label>
@@ -353,6 +388,7 @@ class AuctionElement extends Component {
                 id="bidUpValue"
                 ref="bidUpValue"
                 onChange={this.onChange}
+                required
               />
             </div>
           </div>

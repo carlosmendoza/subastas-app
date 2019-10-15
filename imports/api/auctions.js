@@ -44,10 +44,11 @@ Meteor.methods({
 
     Auctions.update({_id:auctionId}, { $set: { completed: true } });
   },
-  "auctions.bidup"(auctionId, winner, actualValue) {
+  "auctions.bidup"(auctionId, winner, actualValue, winnersPhone) {
     check(auctionId, String);
     check(winner, String);
     check(actualValue, String);
+    check(winnersPhone, String);
 
     Auctions.update(
       {
@@ -56,7 +57,8 @@ Meteor.methods({
       {
         $set: {
           actualValue,
-          winner
+          winner,
+          winnersPhone
         }
       }
     );
