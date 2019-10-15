@@ -83,7 +83,7 @@ meteor
 
 ## Author
 
-Camilo Beltran and Carlos Mendoza
+[Camilo Beltran](https://github.com/cabeltran10) and [Carlos Mendoza](https://github.com/carlosmendoza)
 
 <hr>
 
