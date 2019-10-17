@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="container">
+        <div className="container" role="main">
           <Navbar />
           {this.props.currentUser ? (
             <div>

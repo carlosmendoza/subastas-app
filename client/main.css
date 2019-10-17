@@ -1,11 +1,16 @@
 body {
   padding: 10px;
   font-family: "Domine", sans-serif;
-  color: #013A40;
+  color: #022601;
 }
 
-#my-navbar {
-  background-color: rgba(4, 178, 217, 0.719);
+.navbar-default {
+  background-color: #04C4D9;
+  opacity: 1;
+}
+
+.nav-link {
+  color: black;
 }
 
 .auctionGrid {

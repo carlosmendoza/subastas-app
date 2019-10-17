@@ -6,8 +6,7 @@ import AccountUIWrapper from "../../AccountsUIWrapper";
 function Navbar() {
   return (
     <nav
-      className="sticky-top navbar navbar-expand-lg navbar-light"
-      id="my-navbar"
+      className="sticky-top navbar navbar-expand-lg navbar-light navbar-default"
     >
       <div className="container-fluid">
         <ul className="nav navbar-nav active">
